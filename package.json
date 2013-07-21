@@ -9,9 +9,7 @@
         "url": "https://github.com/jasonmcaffee/pound.git"
     },
     "main": "./lib/main",
-    "bin": {
-        "poundjs": "./bin/pound"
-    },
+
     "dependencies": {},
     "devDependencies": {},
     "optionalDependencies": {},
