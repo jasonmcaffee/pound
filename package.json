@@ -1,0 +1,22 @@
+{
+    "author": "Jason McAffee",
+    "name": "pound",
+    "description": "node.js load testing client and server",
+    "version": "0.0.1",
+    "homepage": "http://github.com/jasonmcaffee/pound",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/jasonmcaffee/pound.git"
+    },
+    "main": "./lib/main",
+    "bin": {
+        "pound": "./bin/pound"
+    },
+    "dependencies": {},
+    "devDependencies": {},
+    "optionalDependencies": {},
+    "engines": {
+        "node": "> 0.6.0"
+    },
+    "keywords":["load", "load testing", "load test", "client load test", "server load test"]
+}
