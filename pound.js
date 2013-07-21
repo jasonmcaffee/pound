@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-console.log('bin/pound running...');
+console.log('not in bin pound running...');
 
 //modules
 var pound = require('../lib/pound');

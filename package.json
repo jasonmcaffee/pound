@@ -1,8 +1,8 @@
 {
     "author": "Jason McAffee",
-    "name": "pound",
+    "name": "poundjs",
     "description": "node.js load testing client and server",
-    "version": "0.0.1",
+    "version": "0.0.3",
     "homepage": "http://github.com/jasonmcaffee/pound",
     "repository": {
         "type": "git",
@@ -10,7 +10,7 @@
     },
     "main": "./lib/main",
     "bin": {
-        "pound": "./bin/pound"
+        "poundjs": "./bin/pound"
     },
     "dependencies": {},
     "devDependencies": {},
