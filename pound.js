@@ -3,7 +3,7 @@
 console.log('not in bin pound running...');
 
 //modules
-var pound = require('/lib/pound');
+var pound = require('./lib/pound');
 
 
 //defaults
