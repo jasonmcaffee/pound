@@ -24,6 +24,7 @@ If you want more than 256 simultaneous requests to be open at a time, you'll nee
 ulimit -n 257
 pound url=www.google.com numberOfRequests=257
 ```
+
 ulimit will allow up to 10240 open sockets/requests at a time.  If you need more than that, you can run the following:
 ```bash
 $ sysctl kern.maxfiles
