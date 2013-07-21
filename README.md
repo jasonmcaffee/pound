@@ -1,11 +1,15 @@
 #pound
 =====
-Pound provides load testing capabilities by generating requests to urls.
+Pound provides load testing capabilities by generating requests to specified urls.
 
 ## Install
+```bash
 sudo npm install -g poundjs
+```
 
 ## Usage
+You can use pound from the terminal to generate requests to a given url.
+For example, we can generate 200 requests to www.google.com by running the following:
 ```bash
 pound url=www.google.com numberOfRequests=200
 ```
@@ -24,6 +28,8 @@ If you don't wish to wait for all the responses to finish, you can ctrl+c to exi
 
 
 ## Roadmap
-provide simple server which can help assess node.js load capabilities (i.e. determine the max load a node process can handle)
-websocket support
-
+- provide simple server which can help assess node.js load capabilities (i.e. determine the max load a node process can handle)
+- websocket support
+- provide ability to throttle requests per second.
+- configuration file for pounding multiple urls. e.g. pound config=/Users/me/poundConfig.js
+- provide more detailed metrics (average response time, responses completed per second, etc)
