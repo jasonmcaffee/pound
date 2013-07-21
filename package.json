@@ -2,13 +2,13 @@
     "author": "Jason McAffee",
     "name": "poundjs",
     "description": "node.js load testing client and server",
-    "version": "0.0.12",
+    "version": "0.0.13",
     "homepage": "http://github.com/jasonmcaffee/pound",
     "repository": {
         "type": "git",
         "url": "https://github.com/jasonmcaffee/pound.git"
     },
-    "bin": "./bin/pound",
+    "bin": "bin/pound",
     "dependencies": {},
     "devDependencies": {},
     "optionalDependencies": {},
