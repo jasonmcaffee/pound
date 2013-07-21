@@ -22,7 +22,8 @@ var defaults = {
     numberOfRequests: 20,
     port: 80,
     requestTimeout : 1000,
-    headers: {}
+    headers: {},
+    verbose:false //for logging
 };
 
 /**
