@@ -81,6 +81,11 @@ default: GET
 
 the request method you wish to use. should be in upper case.
 
+##### numberOfRequests
+default: 200
+
+The number of requests you wish to be immediately created, as quickly as possible, to the provided url or set of urls.
+
 ### Server
 To start the pound server, pass 'server=true' to pound:
 ```bash
@@ -98,8 +103,12 @@ NOTE: see the MAC OS Limits section above if you wish to process more than 256 r
 
 #### Server Options
 ###### server
+default: false
+
 set to true if you wish to start the server
 ###### serverPort
+default: 9090
+
 the port you wish the server to listen on.
 
 
