@@ -48,15 +48,19 @@ $ ulimit -S -n
 If you don't wish to wait for all the responses to finish, you can ctrl+c to exit and still get the status message.
 
 #### Client Options
-All options via the terminal should be space separated, in a <name>=<value> format.
+All options via the terminal should be space separated, in a name=value format.
+
 e.g.
 ```bash
 pound url=www.google.com port=80 numberOfRequests=10
 ```
 ##### url
-the url to the resource you wish the client to request.
-do not prepend 'http://' as it is not needed and will cause an error.
-paths and query string params are fine.
+The url to the resource you wish the client to request.
+
+Do not prepend 'http://' as it is not needed and will cause an error.
+
+Paths and query string params are fine.
+
 If you do not supply a url, a random url from a predefined array of urls will be used.
 ```bash
 pound url=www.example.com/someFile.js?q=true
@@ -64,14 +68,17 @@ pound url=www.example.com/someFile.js?q=true
 
 ##### urls
 default: predefined array of urls
+
 not supported from the command line yet.
 
 ##### port
 default: 80
+
 the port to use when connecting to a server/url.
 
 ##### requestMethod
 default: GET
+
 the request method you wish to use. should be in upper case.
 
 ### Server
@@ -80,6 +87,7 @@ To start the pound server, pass 'server=true' to pound:
 pound server=true
 ```
 By default the server will listen on port 9090
+
 NOTE: see the MAC OS Limits section above if you wish to process more than 256 requests at a time.
 
 #### Server Options
