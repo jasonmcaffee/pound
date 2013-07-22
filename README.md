@@ -88,6 +88,12 @@ pound server=true
 ```
 By default the server will listen on port 9090
 
+The server will simply respond with a text/plain body which will tell you the request number
+```bash
+pound server received request number: 48
+```
+NOTE: 2 requests are issued when you load the server url in your browser. The extra one is for the favicon.
+
 NOTE: see the MAC OS Limits section above if you wish to process more than 256 requests at a time.
 
 #### Server Options
@@ -98,7 +104,7 @@ the port you wish the server to listen on.
 
 
 ## Roadmap
-- provide simple server which can help assess node.js load capabilities (i.e. determine the max load a node process can handle)
+- server option for type. e.g. web server, net (simple socket), web socket, etc.
 - websocket support
 - provide ability to throttle requests per second.
 - configuration file for pounding multiple urls. e.g. pound config=/Users/me/poundConfig.js
