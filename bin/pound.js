@@ -4,6 +4,7 @@ console.log('bin pound running...');
 
 //modules
 var pound = require('../lib/pound');
+var poundServer = require('../lib/poundServer');
 
 
 //defaults
@@ -23,7 +24,9 @@ var defaults = {
     port: 80,
     requestTimeout : 1000,
     headers: {},
-    verbose:false //for logging
+    verbose:false, //for logging
+    server:false, //if true we will run the server instead of the client.
+    serverPort:9090 //port the server should run on.
 };
 
 /**
@@ -54,9 +57,16 @@ function getOptionsFromProcessArguments(){
 }
 
 var userOptions = getOptionsFromProcessArguments();
-console.log(JSON.stringify(userOptions));
+//console.log(JSON.stringify(userOptions));
 
 //run the program
-pound(userOptions);
+if(userOptions.server){
+    console.log('running the pound server');
+    poundServer(userOptions);
+}else{
+    console.log('running the pound client');
+    pound(userOptions);
+}
+
 
 
