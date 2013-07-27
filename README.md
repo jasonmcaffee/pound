@@ -98,6 +98,21 @@ default: false
 
 If set to true, an http agent will be created and used for a set of requests, instead of using the default global agent.
 
+##### printStatusUpdateEveryNseconds
+default: 5
+
+prints out total requests, responses received, etc. every N seconds. Useful when you need visibility into what's going on for high number of requests.
+
+NOTE: these are running totals, and not just the totals for the status update interval.
+
+#### Client Request Errors
+
+##### Unknown system errno 23. syscall: connect
+see https://github.com/jasonmcaffee/pound/issues/2
+
+##### ECONNRESET syscall: read
+see https://github.com/jasonmcaffee/pound/issues/1
+
 ### Server
 To start the pound server, pass 'server=true' to pound:
 ```bash
