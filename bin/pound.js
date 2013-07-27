@@ -26,7 +26,9 @@ var defaults = {
     headers: {},
     verbose:false, //for logging
     server:false, //if true we will run the server instead of the client.
-    serverPort:9090 //port the server should run on.
+    serverPort:9090, //port the server should run on.
+    useAgents:false, //use agents will create an agent every n requests
+    requestsPerSecond: 0 //if set will ensure that N requests are evenly distributed over a second.
 };
 
 /**

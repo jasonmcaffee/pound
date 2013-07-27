@@ -86,6 +86,18 @@ default: 200
 
 The number of requests you wish to be immediately created, as quickly as possible, to the provided url or set of urls.
 
+##### requestsPerSecond
+default: disabled
+
+If set, an interval will be created to send N requests per second instead of sending them all at once.
+
+Note: you may not be able to get down to sub-milliseconds with this option.
+
+##### useAgents
+default: false
+
+If set to true, an http agent will be created and used for a set of requests, instead of using the default global agent.
+
 ### Server
 To start the pound server, pass 'server=true' to pound:
 ```bash
