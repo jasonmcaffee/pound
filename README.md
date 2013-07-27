@@ -8,8 +8,9 @@ Client: Macbook Pro
 
 Server: Hackintosh 10.6.8. 16GB RAM, SSD Hard drive, 3.31 GHz Intel Core i5
 
-Network: Local wifi
+Network: Local wifi. Wireless N.
 
+### Run Type 1: Set interval used to throttle requests per second.
 Using command
 ```bash
 ulimit -n 10240
@@ -28,6 +29,22 @@ responses per second: 764.81835556405354
 
 NOTE: Performance does seem to degrade over time. with 20000 requests, requests per second got up to ~765, but usually ends up around ~525.
 
+### Run Type 2: Sending all requests at the same time. No Agents
+NOTE: this option will start getting ECONNRESET on requests when numberOfRequests is over 150.
+
+```bash
+ulimit -n 10240
+pound url=192.168.0.130 port=9090 numberOfRequests=150
+```
+Results in:
+```bash
+pound completed 150 requests in 98 ms. 
+received responses: 150. 
+highest number of open connections was: 1. 
+request errors: 0
+requests per second: 1530.612244897959. 
+responses per second: 1530.612244897959
+```
 
 ## Install
 ```bash
