@@ -5,11 +5,14 @@ Pound also provides a light-weight server setup so you can determine the process
 
 ## Current Benchmarks
 Client: Macbook Pro
+
 Server: Hackintosh 10.6.8. 16GB RAM, SSD Hard drive, 3.31 GHz Intel Core i5
+
 Network: Local wifi
 
 Using command
 ```bash
+ulimit -n 10240
 pound url=192.168.0.130 port=9090 numberOfRequests=10000 requestsPerSecond=1000 useAgents=true
 ```
 Results in:
