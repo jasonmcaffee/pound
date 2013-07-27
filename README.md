@@ -8,7 +8,7 @@ Client: Macbook Pro
 
 Server: Hackintosh 10.6.8. 16GB RAM, SSD Hard drive, 3.31 GHz Intel Core i5
 
-Network: Local wifi. Wireless N.
+Network: Local wifi. Wireless N. 
 
 ### Run Type 1: Set interval used to throttle requests per second.
 Using command
