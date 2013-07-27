@@ -3,6 +3,28 @@
 Pound is a load testing client which generates N requests to specified urls.
 Pound also provides a light-weight server setup so you can determine the processing power of node.
 
+## Current Benchmarks
+Client: Macbook Pro
+Server: Hackintosh 10.6.8. 16GB RAM, SSD Hard drive, 3.31 GHz Intel Core i5
+Network: Local wifi
+
+Using command
+```bash
+node pound url=192.168.0.130 port=9090 numberOfRequests=10000 requestsPerSecond=1000 useAgents=true
+```
+Results in:
+
+```bash
+pound completed 10000 requests in 13075 ms.
+received responses: 10000.
+highest number of open connections was: 1.
+request errors: 0
+requests per second: 764.81835556405354.
+responses per second: 764.81835556405354
+```
+
+NOTE: Performance does seem to degrade over time. with 20000 requests, requests per second got up to ~765, but usually ends up around ~525.
+
 
 ## Install
 ```bash
