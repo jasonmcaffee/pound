@@ -10,7 +10,7 @@ Network: Local wifi
 
 Using command
 ```bash
-node pound url=192.168.0.130 port=9090 numberOfRequests=10000 requestsPerSecond=1000 useAgents=true
+pound url=192.168.0.130 port=9090 numberOfRequests=10000 requestsPerSecond=1000 useAgents=true
 ```
 Results in:
 
