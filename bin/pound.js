@@ -29,6 +29,9 @@ var defaults = {
     serverPort:9090, //port the server should run on.
     useAgents:false, //use agents will create an agent every n requests
     requestsPerSecond: 0, //if set will ensure that N requests are evenly distributed over a second.
+    sendRequestsInBursts: false, //if set, requestsPerSecond will all be sent out at once, rather than evenly distributed over the second.
+    burstIntervalMs: 200, //how often bursts should be sent
+    requestsPerBurst: 100, //how many requests should be sent in a burst
     printStatusUpdateEveryNseconds: 5 //prints a status update every n seconds
 };
 

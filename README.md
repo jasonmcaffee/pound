@@ -10,7 +10,24 @@ Server: Hackintosh 10.6.8. 16GB RAM, SSD Hard drive, 3.31 GHz Intel Core i5
 
 Network: Local wifi. Wireless N. 
 
-### Run Type 1: Set interval used to throttle requests per second.
+### Run Type 1: Burst mode.
+Sending N requests as fast as possible every X milliseconds.
+```bash
+ulimit -n 10240
+node pound url=192.168.0.130 port=9090 numberOfRequests=10000 burstIntervalMs=100 requestsPerBurst=120 useAgents=true sendRequestsInBursts=true
+```
+Results in:
+```bash
+pound completed 10000 requests in 9223 ms. 
+received responses: 10000. 
+highest number of open connections was: 1. 
+request errors: 0
+requests per second: 1084.3634786380396. 
+responses per second: 1084.3634786380396
+```
+
+
+### Run Type 2: Set interval used to throttle requests per second.
 Using command
 ```bash
 ulimit -n 10240
@@ -29,7 +46,7 @@ responses per second: 764.81835556405354
 
 NOTE: Performance does seem to degrade over time. with 20000 requests, requests per second got up to ~765, but usually ends up around ~525.
 
-### Run Type 2: Sending all requests at the same time. No Agents
+### Run Type 3: Sending all requests at the same time. No Agents
 NOTE: this option will start getting ECONNRESET on requests when numberOfRequests is over 150.
 
 ```bash
@@ -133,7 +150,31 @@ default: disabled
 
 If set, an interval will be created to send N requests per second instead of sending them all at once.
 
+Requests will be created evenly over the course of a second. ie. 1 request every N ms.
+
 Note: you may not be able to get down to sub-milliseconds with this option.
+
+Note: not valid when sending requests in bursts. see sendRequestsInBursts
+
+##### sendRequestsInBursts
+default: disabled
+
+Instead of evenly distributing requests evenly over the course of a second (see requestsPerSecond),
+this option will send requestsPerBurst requests all at once, every burstIntervalMs. 
+
+##### requestsPerBurst
+default: 200 (only used when sendRequestsInBursts is true)
+
+This amount of requests will be sent all at once every burstIntervalMs.
+
+Useful for tweaking to find the max requests that you can send as fast as possible.
+
+##### burstIntervalMs
+default: 200 (only used when sendRequestsInBursts is true)
+
+Bursts of requests will be sent every N milliseconds.
+
+Useful for tweaking to find the max requests that you can send as fast as possible.
 
 ##### useAgents
 default: false
