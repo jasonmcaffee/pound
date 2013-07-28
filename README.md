@@ -8,6 +8,8 @@ Client: Macbook Pro
 
 Server: Hackintosh 10.6.8. 16GB RAM, SSD Hard drive, 3.31 GHz Intel Core i5
 
+Node --version : v0.10.15
+
 Network: Local wifi. Wireless N. 
 
 ### Run Type 1: Burst mode.
