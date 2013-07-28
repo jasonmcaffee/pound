@@ -12,8 +12,28 @@ Node --version : v0.10.15
 
 Network: Local wifi. Wireless N. 
 
-### Run Type 1: Burst mode.
+### Run Type 1: Burst mode - keep-alive connections + agents
+high amount of requests and throughput.
+
+```bash
+pound url=192.168.0.130 port=9090 numberOfRequests=20000 burstIntervalMs=500
+requestsPerBurst=5000 sendRequestsInBursts=true useAgents=true
+agentMaxSockets=12000 agentEveryNrequests=5000 connectionHeader='keep-alive'
+```
+Results in:
+```bash
+pound completed 20000 requests in 5113 ms. 
+received responses: 20000. 
+highest number of open connections was: 58. 
+request errors: 0
+requests per second: 3911.5978877371404. 
+responses per second: 3911.5978877371404
+```
+
+### Run Type 2: Burst mode - closed connections
 Sending N requests as fast as possible every X milliseconds.
+
+Each connection is closed.
 ```bash
 ulimit -n 10240
 pound url=192.168.0.130 port=9090 numberOfRequests=10000 burstIntervalMs=90
@@ -29,8 +49,7 @@ requests per second: 1199.328376109379.
 responses per second: 1199.328376109379
 ```
 
-
-### Run Type 2: Set interval used to throttle requests per second.
+### Run Type 3: Set interval used to throttle requests per second.
 Using command
 ```bash
 ulimit -n 10240
@@ -49,7 +68,7 @@ responses per second: 764.81835556405354
 
 NOTE: Performance does seem to degrade over time. with 20000 requests, requests per second got up to ~765, but usually ends up around ~525.
 
-### Run Type 3: Sending all requests at the same time. No Agents
+### Run Type 4: Sending all requests at the same time. No Agents
 NOTE: this option will start getting ECONNRESET on requests when numberOfRequests is over 150.
 
 ```bash
