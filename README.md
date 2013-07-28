@@ -179,17 +179,15 @@ Bursts of requests will be sent every N milliseconds.
 
 Useful for tweaking to find the max requests that you can send as fast as possible.
 
+##### connectionHeader
+default: 'close'
+
+The connection request header value. setting to 'keep-alive' will allow more throughput.
+
 ##### useAgents
 default: false
 
 If set to true, an http agent will be created and used for a set of requests, instead of using the default global agent.
-
-##### printStatusUpdateEveryNseconds
-default: 5
-
-prints out total requests, responses received, etc. every N seconds. Useful when you need visibility into what's going on for high number of requests.
-
-NOTE: these are running totals, and not just the totals for the status update interval.
 
 ##### agentEveryNrequests
 default: 20 (only used when useAgents=true)
@@ -200,6 +198,13 @@ a new agent will be created and used every N requests.
 default: 20  (only used when useAgents=true)
 
 max sockets set for each new agent created.
+
+##### printStatusUpdateEveryNseconds
+default: 5
+
+prints out total requests, responses received, etc. every N seconds. Useful when you need visibility into what's going on for high number of requests.
+
+NOTE: these are running totals, and not just the totals for the status update interval.
 
 #### Client Request Errors
 
