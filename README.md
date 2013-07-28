@@ -4,13 +4,15 @@ Pound is a load testing client which generates N requests to specified urls.
 Pound also provides a light-weight server setup so you can determine the processing power of node.
 
 ## Current Benchmarks
-Client: Macbook Pro
+Client: Macbook Pro Mid 2012 10.7.5. 8GB RAM, SATA HD, 2.3 GHz Intel Core i7
 
 Server: Hackintosh 10.6.8. 16GB RAM, SSD Hard drive, 3.31 GHz Intel Core i5
 
 Node --version : v0.10.15
 
 Network: Local wifi. Wireless N. 
+
+NOTE: Current request per second limitations seem to be on the client, not the server.
 
 ### Run Type 1: Burst mode - keep-alive connections + agents
 high amount of requests and throughput.
