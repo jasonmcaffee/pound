@@ -14,17 +14,17 @@ Network: Local wifi. Wireless N.
 Sending N requests as fast as possible every X milliseconds.
 ```bash
 ulimit -n 10240
-pound url=192.168.0.130 port=9090 numberOfRequests=10000 burstIntervalMs=100
+pound url=192.168.0.130 port=9090 numberOfRequests=10000 burstIntervalMs=90
  requestsPerBurst=120 useAgents=true sendRequestsInBursts=true
 ```
 Results in:
 ```bash
-pound completed 10000 requests in 9223 ms. 
+pound completed 10000 requests in 8339 ms. 
 received responses: 10000. 
 highest number of open connections was: 1. 
 request errors: 0
-requests per second: 1084.3634786380396. 
-responses per second: 1084.3634786380396
+requests per second: 1199.328376109379. 
+responses per second: 1199.328376109379
 ```
 
 
