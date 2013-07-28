@@ -259,6 +259,10 @@ default: 9090
 
 the port you wish the server to listen on.
 
+##### clusterServer
+default: false
+
+uses the experimental cluster api to fork the server across all cpus on the box.
 
 ## Roadmap
 - server option for type. e.g. web server, net (simple socket), web socket, etc.

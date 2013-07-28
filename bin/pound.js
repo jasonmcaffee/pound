@@ -27,6 +27,7 @@ var defaults = {
     verbose:false, //for logging
     server:false, //if true we will run the server instead of the client.
     serverPort:9090, //port the server should run on.
+    clusterServer:false, //uses experimental cluster api
     useAgents:false, //use agents will create an agent every n requests
     requestsPerSecond: 0, //if set will ensure that N requests are evenly distributed over a second.
     sendRequestsInBursts: false, //if set, requestsPerSecond will all be sent out at once, rather than evenly distributed over the second.
@@ -37,13 +38,14 @@ var defaults = {
     connectionHeader: 'close' //the connection request header value. keep-alive, close, etc.
 };
 
+var poundArguments = process.argv.splice(2);
 /**
  * Takes arguments passed in from the console and puts them into the options object.
  * e.g. node pound url='http://www.google.com' numberOfRequests=30
  * {url:'http://www.google.com', numberOfRequests:20}
  */
 function getOptionsFromProcessArguments(){
-    var poundArguments = process.argv.splice(2);
+    //var poundArguments = process.argv.splice(2);
     poundArguments.forEach(function (val, index, array) {
         console.log(index + ': ' + val);
 
@@ -70,7 +72,7 @@ var userOptions = getOptionsFromProcessArguments();
 //run the program
 if(userOptions.server){
     console.log('running the pound server');
-    poundServer(userOptions);
+    poundServer(userOptions, poundArguments);
 }else{
     console.log('running the pound client');
     pound(userOptions);
