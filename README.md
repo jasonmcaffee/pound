@@ -12,7 +12,6 @@ Node --version : v0.10.15
 
 Network: Local wifi. Wireless N. 
 
-NOTE: Current request per second limitations seem to be on the client, not the server.
 
 ### Run Type 1: Burst mode - keep-alive connections + agents
 high amount of requests and throughput.
