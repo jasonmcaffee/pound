@@ -189,6 +189,16 @@ prints out total requests, responses received, etc. every N seconds. Useful when
 
 NOTE: these are running totals, and not just the totals for the status update interval.
 
+##### agentEveryNrequests
+default: 20 (only used when useAgents=true)
+
+a new agent will be created and used every N requests.
+
+##### agentMaxSockets
+default: 20  (only used when useAgents=true)
+
+max sockets set for each new agent created.
+
 #### Client Request Errors
 
 ##### Unknown system errno 23. syscall: connect

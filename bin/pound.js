@@ -32,7 +32,8 @@ var defaults = {
     sendRequestsInBursts: false, //if set, requestsPerSecond will all be sent out at once, rather than evenly distributed over the second.
     burstIntervalMs: 200, //how often bursts should be sent
     requestsPerBurst: 100, //how many requests should be sent in a burst
-    printStatusUpdateEveryNseconds: 5 //prints a status update every n seconds
+    printStatusUpdateEveryNseconds: 5, //prints a status update every n seconds
+    agentEveryNrequests: 20 //a new agent will be created every N requests.
 };
 
 /**
