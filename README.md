@@ -14,7 +14,8 @@ Network: Local wifi. Wireless N.
 Sending N requests as fast as possible every X milliseconds.
 ```bash
 ulimit -n 10240
-node pound url=192.168.0.130 port=9090 numberOfRequests=10000 burstIntervalMs=100 requestsPerBurst=120 useAgents=true sendRequestsInBursts=true
+node pound url=192.168.0.130 port=9090 numberOfRequests=10000 burstIntervalMs=100
+ requestsPerBurst=120 useAgents=true sendRequestsInBursts=true
 ```
 Results in:
 ```bash
