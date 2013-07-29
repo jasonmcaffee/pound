@@ -35,7 +35,9 @@ var defaults = {
     requestsPerBurst: 100, //how many requests should be sent in a burst
     printStatusUpdateEveryNseconds: 5, //prints a status update every n seconds
     agentEveryNrequests: 20, //a new agent will be created every N requests.
-    connectionHeader: 'close' //the connection request header value. keep-alive, close, etc.
+    connectionHeader: 'close', //the connection request header value. keep-alive, close, etc.
+    globalAgentMaxSockets: 10000, //max sockets for globalAgent
+    silent: false // logging on server will be disabled.
 };
 
 var poundArguments = process.argv.splice(2);

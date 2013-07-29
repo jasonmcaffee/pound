@@ -219,6 +219,11 @@ default: 20  (only used when useAgents=true)
 
 max sockets set for each new agent created.
 
+##### globalAgentMaxSockets
+default: 10,000
+
+the value which should be assigned to http.globalAgent.maxSockets.
+
 ##### printStatusUpdateEveryNseconds
 default: 5
 
@@ -263,6 +268,19 @@ the port you wish the server to listen on.
 default: false
 
 uses the experimental cluster api to fork the server across all cpus on the box.
+
+##### globalAgentMaxSockets
+default: 10,000
+
+the value which should be assigned to http.globalAgent.maxSockets.
+
+
+##### silent
+default: false
+
+when true, console logs won't be written for each request received. (the terminal can eat up 99% cpu when logging lots of requests)
+
+you can process several hundreds more requests per second when silent=true
 
 ## Roadmap
 - server option for type. e.g. web server, net (simple socket), web socket, etc.
