@@ -25,12 +25,12 @@ agentEveryNrequests=12000 connectionHeader='keep-alive'
 ```
 Results in:
 ```bash
-pound completed 129695 requests in 25337 ms. 
-received responses: 129695. 
-highest number of open connections was: 197. 
+pound completed 150000 requests in 28588 ms. 
+received responses: 150000. 
+highest number of open connections was: 240. 
 request errors: 0
-requests per second: 5119.202684033945. 
-responses per second: 5119.202684033945
+requests per second: 5246.956765076256. 
+responses per second: 5246.956765076256
 ```
 
 ### Run Type 2: Burst mode - closed connections
