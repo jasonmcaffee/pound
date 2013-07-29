@@ -16,19 +16,21 @@ Network: Local wifi. Wireless N.
 ### Run Type 1: Burst mode - keep-alive connections + agents
 high amount of requests and throughput.
 
+(result is when hitting pound server with clusterServer=true)
 ```bash
-pound url=192.168.0.130 port=9090 numberOfRequests=20000 burstIntervalMs=500
-requestsPerBurst=5000 sendRequestsInBursts=true useAgents=true
-agentMaxSockets=12000 agentEveryNrequests=5000 connectionHeader='keep-alive'
+ulimit -n 10240
+pound url=192.168.0.130 port=9090 numberOfRequests=150000 burstIntervalMs=90
+requestsPerBurst=12000 sendRequestsInBursts=true useAgents=true agentMaxSockets=12000 
+agentEveryNrequests=12000 connectionHeader='keep-alive'
 ```
 Results in:
 ```bash
-pound completed 20000 requests in 5113 ms. 
-received responses: 20000. 
-highest number of open connections was: 58. 
+pound completed 150000 requests in 28588 ms. 
+received responses: 150000. 
+highest number of open connections was: 240. 
 request errors: 0
-requests per second: 3911.5978877371404. 
-responses per second: 3911.5978877371404
+requests per second: 5246.956765076256. 
+responses per second: 5246.956765076256
 ```
 
 ### Run Type 2: Burst mode - closed connections
@@ -120,6 +122,8 @@ $ sudo sysctl -w kern.maxfiles=1048600
 kern.maxfiles: 12288 -> 1048600
 $ sudo sysctl -w kern.maxfilesperproc=1048576
 kern.maxfilesperproc: 10240 -> 1048576
+
+### IN A NEW TERMINAL ########
 $ ulimit -S -n
 256
 $ ulimit -S -n 1048576
@@ -283,9 +287,6 @@ when true, console logs won't be written for each request received. (the termina
 you can process several hundreds more requests per second when silent=true
 
 ## Roadmap
-- server option for type. e.g. web server, net (simple socket), web socket, etc.
 - websocket support
-- provide ability to throttle requests per second.
 - configuration file for pounding multiple urls. e.g. pound config=/Users/me/poundConfig.js
-- provide more detailed metrics (average response time, responses completed per second, etc)
-- use clustering for client and server to allow higher volumes.
+- use clustering or workers for client to allow for higher requests per second.
