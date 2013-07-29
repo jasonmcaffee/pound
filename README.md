@@ -267,9 +267,6 @@ default: false
 uses the experimental cluster api to fork the server across all cpus on the box.
 
 ## Roadmap
-- server option for type. e.g. web server, net (simple socket), web socket, etc.
 - websocket support
-- provide ability to throttle requests per second.
 - configuration file for pounding multiple urls. e.g. pound config=/Users/me/poundConfig.js
-- provide more detailed metrics (average response time, responses completed per second, etc)
-- use clustering for client and server to allow higher volumes.
+- use clustering or workers for client to allow for higher requests per second.
