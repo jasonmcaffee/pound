@@ -122,6 +122,8 @@ $ sudo sysctl -w kern.maxfiles=1048600
 kern.maxfiles: 12288 -> 1048600
 $ sudo sysctl -w kern.maxfilesperproc=1048576
 kern.maxfilesperproc: 10240 -> 1048576
+
+### IN A NEW TERMINAL ########
 $ ulimit -S -n
 256
 $ ulimit -S -n 1048576
