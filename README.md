@@ -16,19 +16,21 @@ Network: Local wifi. Wireless N.
 ### Run Type 1: Burst mode - keep-alive connections + agents
 high amount of requests and throughput.
 
+(result is when hitting pound server with clusterServer=true)
 ```bash
-pound url=192.168.0.130 port=9090 numberOfRequests=20000 burstIntervalMs=500
-requestsPerBurst=5000 sendRequestsInBursts=true useAgents=true
-agentMaxSockets=12000 agentEveryNrequests=5000 connectionHeader='keep-alive'
+ulimit -n 10240
+pound url=192.168.0.130 port=9090 numberOfRequests=150000 burstIntervalMs=90
+requestsPerBurst=12000 sendRequestsInBursts=true useAgents=true agentMaxSockets=12000 
+agentEveryNrequests=12000 connectionHeader='keep-alive'
 ```
 Results in:
 ```bash
-pound completed 20000 requests in 5113 ms. 
-received responses: 20000. 
-highest number of open connections was: 58. 
+pound completed 129695 requests in 25337 ms. 
+received responses: 129695. 
+highest number of open connections was: 197. 
 request errors: 0
-requests per second: 3911.5978877371404. 
-responses per second: 3911.5978877371404
+requests per second: 5119.202684033945. 
+responses per second: 5119.202684033945
 ```
 
 ### Run Type 2: Burst mode - closed connections
