@@ -1,6 +1,8 @@
 #pound
-=====
-Pound is a load testing client which generates N requests to specified urls.
+Pound is a load testing client which generates requests to specified urls.
+
+It provides many options which you can tweak so you can generate and send as many messages/requests as possible.
+
 Pound also provides a light-weight server setup so you can determine the processing power of node.
 
 ## Current Benchmarks
@@ -14,9 +16,17 @@ Network: Local wifi. Wireless N.
 
 
 ### Run Type 1: Burst mode - keep-alive connections + agents
-high amount of requests and throughput.
+Sending N requests as fast as possible every X milliseconds.
+
+Keep the connections alive, as opposed to recreating a connection with every request.
+
+These settings allow for a high number of requests per second, but do not accurately reflect a real world web scenario with
+multiple client connections. (It's more like a 12 browsers downloading 12,000 files each)
 
 (result is when hitting pound server with clusterServer=true)
+
+NOTE: the more requests made, the higher the requests per second will increase (you will hit a limit), as the initial establishing of
+connections is slow compared to sending the request.
 ```bash
 ulimit -n 10240
 pound url=192.168.0.130 port=9090 numberOfRequests=150000 burstIntervalMs=90
@@ -35,6 +45,11 @@ responses per second: 5246.956765076256
 
 ### Run Type 2: Burst mode - closed connections
 Sending N requests as fast as possible every X milliseconds.
+
+Each request creates a new connection (all requests are sent with the http header connection:'close').
+
+These settings offer a good amount of requests per second, but again, likely do not accurately reflect a real world web scenario
+where a client will establish a connection with 'keep-alive', and subsequent http requests (e.g. css, js, and image files) are made with that connection.
 
 Each connection is closed.
 ```bash
@@ -276,7 +291,7 @@ uses the experimental cluster api to fork the server across all cpus on the box.
 ##### globalAgentMaxSockets
 default: 10,000
 
-the value which should be assigned to http.globalAgent.maxSockets.
+the value which should be assigned to http.globalAgent.maxSockets, which defaults to 5.
 
 
 ##### silent
@@ -287,6 +302,10 @@ when true, console logs won't be written for each request received. (the termina
 you can process several hundreds more requests per second when silent=true
 
 ## Roadmap
+- allow for connection-header to be changed every N requests (from close to keep-alive) so users can mimic real world scenario with 1000s of clients downloading ~10 files with keep-alive.
 - websocket support
 - configuration file for pounding multiple urls. e.g. pound config=/Users/me/poundConfig.js
 - use clustering or workers for client to allow for higher requests per second.
+- add a folder for performance snapshots (cpu, disk io, memory, etc)
+- make the client usable from other modules (add options for request callbacks, complete, error, etc.) don't always call process.exit
+- add more metrics: bytes received, connection time,
